@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AeroPay</title>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script src="popup.js"></script>
+    <style>
+      .paySpanText {
+        font-weight: bold;
+      }
+      .field {
+        padding-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="field">
+      <span class="paySpanText">Weekly Rate:</span>
+      <input class="pay" type="text" id="weekPay"/>
+    </div>
+    <div class="field">
+      <span class="paySpanText">Saturday Rate:</span>
+      <input class="pay" type="text" id="satPay"/>
+    </div>
+    <div class="field">
+      <span class="paySpanText">Sunday Rate:</span>
+      <input class="pay" type="text" id="sunPay"/>
+    </div>
+    <center>
+      <div class="field">
+      <span class="paySpanText">Public Holidays:</span>
+        <select id="state">
+          <option value="qld">QLD</option>
+          <option value="nsw">NSW</option>
+          <option value="vic">VIC</option>
+          <option value="act">ACT</option>
+          <option value="tas">TAS</option>
+          <option value="sa">SA</option>
+          <option value="nt">NT</option>
+          <option value="wa">WA</option>
+        </select>
+      </div>
+        <input type="submit" id="buttonChange" value="Save"/>
+    </center>
+  </body>
+</html>

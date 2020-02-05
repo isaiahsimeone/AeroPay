@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "AeroPay",
+  "description": "Shift payment approximations for the AeroNet websuite",
+  "version": "1.0",
+  "author": "Isaiah Simeone",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+
+  "page_action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html",
+    "default_title": "AeroPay"
+  },
+
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+
+  "content_scripts":[
+    {
+      "matches": ["https://aerocare.com.au/*"],
+      "js": ["jquery-3.1.0.min.js", "content.js"]
+    }
+  ],
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "https://aerocare.com.au/*"
+    ]
+}
