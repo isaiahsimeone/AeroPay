@@ -34,7 +34,4 @@ $(function() {
             chrome.tabs.sendMessage(tabs[0].id, {todo: "approximatePay", rates: obj.rates });
         });
     });
-
-
 });
-

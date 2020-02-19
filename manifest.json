@@ -2,6 +2,7 @@
   "manifest_version": 2,
 
   "name": "AeroPay",
+  "short_name": "AeroPay",
   "description": "Shift payment approximations for the AeroNet websuite",
   "version": "1.0",
   "author": "Isaiah Simeone",
