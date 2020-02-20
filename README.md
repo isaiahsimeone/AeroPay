@@ -1,6 +1,6 @@
 # :dollar: AeroPay
 
-A Google Chrome plugin used for the approximation of payments while using the AeroNet websuite.
+A Google Chrome extension used for the approximation of payments while using the AeroNet websuite.
 
 ### Installing
 
