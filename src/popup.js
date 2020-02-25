@@ -1,8 +1,16 @@
+/**
+* Validates whether a string is in the correct format to be saved, (e.g. 23.2, 26.43, etc)
+* @Param {string} : The payrate to be validated
+* @returns {boolean} : true if the string is properly formatted as a pay rate, false otherwise.
+*/
 function validate(str) {
     var pattern = /^[0-9]*\.?[0-9]*$/;
     return str.match(pattern);
 }
 
+/**
+* Saves any changes made by the user upon any of the text fields (or option boxes) changing
+*/
 function rateChange() {
 	var rateArray = [weekPay.value, satPay.value, sunPay.value, state.value];
 
@@ -15,6 +23,10 @@ function rateChange() {
 	}
 }
 
+/**
+* Executed upon load of popup.html when the user is attempting to access extension settings
+* Payrates are fetched from the users account and prefilled into the pay rate text boxes.
+*/
 $(function() {
 	var weekPay = document.getElementById("weekPay");
     var satPay = document.getElementById("satPay");

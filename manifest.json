@@ -4,7 +4,7 @@
   "name": "AeroPay",
   "short_name": "AeroPay",
   "description": "Shift payment approximations for the AeroNet websuite",
-  "version": "1.0",
+  "version": "1.0.1",
   "author": "Isaiah Simeone",
   "icons": {
     "128": "img/icon128.png",
@@ -25,7 +25,7 @@
 
   "content_scripts":[
     {
-      "matches": ["https://aerocare.com.au/*"],
+      "matches": ["https://aerocare.com.au/*", "https://swissport.com.au/*"],
       "js": ["src/jquery-3.1.0.min.js", "src/content.js"]
     }
   ],
@@ -33,6 +33,7 @@
   "permissions": [
     "tabs",
     "storage",
-    "https://aerocare.com.au/*"
+    "https://aerocare.com.au/*",
+    "https://swissport.com.au/*"
     ]
 }

@@ -28,16 +28,23 @@ function contentLoaded() {
         var numRosterTabs = frameContent.getElementById("main-content").getElementsByClassName("dynamic-tab-pane-control")[0].getElementsByClassName("tab-page").length;
         var tabs = frameContent.getElementById("main-content").getElementsByClassName("dynamic-tab-pane-control")[0];
       
-        // If one additional tab exists, add functionality to it
+        // If one additional tab exists, add functionality to it. Functionality will not be added if a tab 
+        // has already been selected (which would add the same functionality again and create graphical errors).
         if(numRosterTabs > 1) {
             tabs.getElementsByClassName("tab-row")[0].getElementsByTagName("h2")[1].onclick = function() { 
-                if(!window.accessedTabs[0]) {rosterHandler(frameContent); window.accessedTabs[0] = 1; }
+                if(!window.accessedTabs[0]) {
+                    rosterHandler(frameContent); 
+                    window.accessedTabs[0] = 1; 
+                }
             };
         }
         // Continue to add functionality for a third tab if it exists
         if(numRosterTabs > 2) {
             tabs.getElementsByClassName("tab-row")[0].getElementsByTagName("h2")[2].onclick = function() { 
-                if(!window.accessedTabs[1]) {rosterHandler(frameContent); window.accessedTabs[1] = 1; }
+                if(!window.accessedTabs[1]) {
+                    rosterHandler(frameContent); 
+                    window.accessedTabs[1] = 1; 
+                }
             };
         }
 
@@ -207,7 +214,7 @@ async function parseHolidays(holidays) {
         formattedDate = formatDate(holidays[i].Date);
         // Get the name of the public holiday event e.g. 'New Year's Day'
         eventName = holidays[i]["Holiday Name"];
-
+        // Add public holiday data to array
         window.publicHolidays.push([formattedDate, eventName]);
     }
 }
