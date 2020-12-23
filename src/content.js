@@ -122,7 +122,7 @@ function rosterHandler(frameContent) {
         payRate = getPayRate(shiftDay);
 
         //Is the date a public holiday?
-        if(isPublicHoliday(shiftDate) !== undefined) {
+        if(isPublicHoliday(shiftDate)) {
             payRate = 2 * getPayRate("MON");
             textColour = "GOLD";
             shiftEntry[ shiftNoteIdx ].innerHTML += "<span style='float:right';>" + isPublicHoliday(shiftDate) + "</span>";
@@ -160,9 +160,9 @@ function timesheetHandler(frameContent) {
         shiftEntry  = timesheetTable.getElementsByTagName("tr")[i].getElementsByTagName("td");
         // Tokenise timetable entry 
         shiftDay    = shiftEntry[0].innerText.trim().substring(0, 3); 
-        shiftLength = shiftEntry[8].innerText.trim();
+        shiftLength = shiftEntry[9].innerText.trim();
         shiftDate   = shiftEntry[0].innerText.trim().substring(4, 9) + "/" + yearInView;
-        shiftArea   = shiftEntry[4].innerText.trim();
+        shiftArea   = shiftEntry[5].innerText.trim();
         textColour  = "GREEN";
         payRate     = 0;
 
@@ -170,18 +170,18 @@ function timesheetHandler(frameContent) {
         payRate = getPayRate(shiftDay);
 
         //Is the date a public holiday? (Public holiday rates are not paid for sick days)
-        if(isPublicHoliday(shiftDate) !== undefined && shiftArea != "SICK") {
+        if(isPublicHoliday(shiftDate) && shiftArea != "SICK") {
             payRate *= 2;
             textColour = "GOLD";
             shiftEntry[7].innerHTML += "<span style='float:right';>" + isPublicHoliday(shiftDate) + "</span>";
         }
 
-        shiftEntry[8].innerHTML += getHTMLText(payRate * shiftLength, textColour, false);
+        shiftEntry[9].innerHTML += getHTMLText(payRate * shiftLength, textColour, false);
         runningSum += (payRate * shiftLength);
     }
 
     var totalRowData = timesheetTable.getElementsByTagName("tr")[numShifts].getElementsByTagName("td");
-    totalRowData[8].innerHTML += getHTMLText(runningSum, "GREEN", true);
+    totalRowData[9].innerHTML += getHTMLText(runningSum, "GREEN", true);
 }
 
 /**
